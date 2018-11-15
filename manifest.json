@@ -1,0 +1,31 @@
+{
+    "manifest_version": 2,
+    "name": "YT Draggable Miniplayer",
+    "description": "Make the youtube miniplayer draggable",
+    "version": "1.0",
+    "background": {
+        "scripts": ["src/backgroundService.js"]
+    },
+    "content_scripts": [
+        {
+            "run_at": "document_end",
+            "css": ["src/style.css"],
+            "js": [
+                "lib/interact.min.js",
+                "src/app.js"
+            ],
+            "matches": [
+                "http://developer.chrome.com/*",
+                "http://*.youtube.com/*",
+                "https://*.youtube.com/*",
+                "https://developer.chrome.com/*"
+            ]
+        }
+    ],
+    "page_action": {
+        "default_icon": "images/icon32.png"
+    },
+    "permissions": [
+        "activeTab", "declarativeContent"
+    ]
+}
